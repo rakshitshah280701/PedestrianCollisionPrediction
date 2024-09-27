@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Details - Pedestrian Collision Prediction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Algorithms Used in PedView</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="technical.html">PedView System</a></li>
+                    <li><a href="algorithm.html">Algorithms</a></li>
+                    <li><a href="experiment.html">Experiments</a></li>
+                    <li><a href="bibliography.html">Bibliography</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="introduction">
+            <div class="container">
+                <h2>Introduction</h2>
+                <p>This section explores the advanced algorithms that enable the PedView system to detect pedestrians and predict collisions effectively using a monocular camera setup.</p>
+            </div>
+        </section>
+
+        <section id="deep-learning-ped-detection">
+            <div class="container">
+                <h2>Deep Learning in Pedestrian Detection</h2>
+                <p>Recent advancements in deep learning have revolutionized pedestrian detection technologies. Techniques such as Convolutional Neural Networks (CNNs) have shown remarkable success by automatically learning complex feature hierarchies from data, significantly outperforming traditional handcrafted features [3].</p>
+                <p>This approach allows for more accurate and reliable detection in diverse and dynamic environments, making it ideal for real-time applications like PedView. The integration of these methods enhances the system's ability to adapt to various lighting and weather conditions, improving overall safety [3].</p>
+            </div>
+        </section>
+        
+
+        <section id="monocular-3d-detection">
+            <div class="container">
+                <h2>Monocular 3D Pedestrian Detection</h2>
+                <p>The PedView system employs a sophisticated monocular 3D detection method to accurately identify and localize pedestrians. This technique leverages advanced computer vision and deep learning to process images captured by a single forward-facing camera.</p>
+                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/Screenshot 2024-09-26 at 6.47.36 PM.png" alt="Monocular 3D Detection Process Diagram" style="width:100%;">
+                
+                <h3>Detailed Component Breakdown</h3>
+                <p><strong>Backbone Network:</strong> Utilizes the Swin-small model to extract features from the input image, forming the basis for detection.</p>
+                <p><strong>FPN Neck:</strong> The Feature Pyramid Network enhances detection capabilities across different scales, crucial for identifying pedestrians at various distances.</p>
+                <p><strong>Detection Heads:</strong> These components apply classifications, regress bounding boxes, and predict additional attributes such as pedestrian movement.</p>
+                <p>Each detection head processes the feature maps to output precise information about pedestrian location and behavior, significantly aiding in the system’s ability to predict potential collisions.</p>
+            </div>
+        </section>
+
+        <section id="single-shot-detection">
+            <div class="container">
+                <h2>Single-Shot 3D Detection Framework</h2>
+                <p>Adopting a single-shot, end-to-end trained network similar to the M3D-RPN [2] could streamline PedView's detection processes, allowing simultaneous 2D and 3D object detection. This method reduces computational overhead and enhances real-time processing capabilities [2].</p>
+                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/single-shot.png" alt="Single_shot" style="width:100%;">
+
+            </div>
+        </section>
+
+        <section id="fuzzy-logic-prediction">
+            <div class="container">
+                <h2>Fuzzy Logic Collision Prediction</h2>
+                <p>This section details the fuzzy logic algorithms that evaluate the collision risk based on the data provided by the pedestrian detection system.</p>
+                <p>Fuzzy logic is used to interpret the uncertain and imprecise data, turning it into meaningful risk assessments. This system's logic involves stages of fuzzification, rule-based inference, and defuzzification to classify risk levels effectively.</p>
+                <p>Fuzzy logic plays a pivotal role in assessing the collision risk by interpreting various inputs through fuzzy sets. Below are the membership functions used for lateral distance, longitudinal distance, movement status, and the output hazard levels.</p>
+                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/graph.png" alt="Fuzzy Logic Membership Functions" style="width:100%;">
+                <h3>Detailed Explanation of Membership Functions</h3>
+        <p>The graphs illustrate how input variables like lateral and longitudinal distances, along with pedestrian movement status, are converted into fuzzy values which are then used to determine collision risk levels.</p>
+        
+        <ul>
+            <li><strong>Graphs (a) and (b) - Distance Measures:</strong> These graphs for lateral and longitudinal distances categorize proximity in fuzzy terms (Near, Medium, Far) to assess how close a pedestrian is to the vehicle. This fuzzy categorization helps the system respond more flexibly under varied real-world conditions.</li>
+            <li><strong>Graph (c) - Movement Status:</strong> This graph evaluates the pedestrian's current movement state (Stationary, Moving), which is crucial for predicting potential collision paths and dynamics.</li>
+            <li><strong>Graph (d) - Hazard Level:</strong> The output graph defines the level of risk (Low, Medium, High) based on the combined assessment of the inputs. This helps the vehicle’s ADAS make informed decisions about potential safety interventions.</li>
+        </ul>
+        
+        <p>These membership functions are key components of the fuzzification process, where real-world quantitative data is converted into qualitative assessments (fuzzy sets). Following the application of fuzzy rules, the system uses these assessments to output a risk level, which is then defuzzified to a crisp value that can directly inform collision prevention measures.</p>
+    </div>
+            </div>
+        </section>
+
+        
+        
+
+        <section id="conclusion">
+            <div class="container">
+                <h2>Conclusion</h2>
+                <p>The algorithms discussed are integral to the PedView system’s success in enhancing pedestrian safety in urban driving environments. By effectively detecting and predicting pedestrian movements, the system provides crucial real-time assistance to drivers, thereby reducing the likelihood of collisions.</p>
+            </div>
+        </section>
+    </main>
+
+    
+</body>
+</html>

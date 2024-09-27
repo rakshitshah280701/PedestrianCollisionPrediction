@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PedView System - Pedestrian Collision Prediction</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -13,9 +13,9 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="technical.html">PedView System</a></li>
+                    <li><a href="technical.html">Technical Details</a></li>
                     <li><a href="algorithm.html">Algorithms</a></li>
-                    <li><a href="experiments.html">Experiments</a></li>
+                    <li><a href="experiment.html">Experiments</a></li>
                     <li><a href="bibliography.html">Bibliography</a></li>
                 </ul>
             </nav>
@@ -25,41 +25,152 @@
     <main>
         <section id="introduction">
             <div class="container">
-                <h2>Introduction to PedView</h2>
-                <p>PedView is an advanced pedestrian collision prediction system designed for Advanced Driver Assistance Systems (ADAS). It leverages a forward-facing monocular camera and a fuzzy control system to accurately predict pedestrian collisions. By utilizing 3D object detection and integrating fuzzy logic, PedView provides a cost-effective alternative to systems that rely on LiDAR or stereo cameras. This makes it especially useful for resource-limited environments like dealer-installed ADAS systems.</p>
+                <h2>System Overview</h2>
+                <p>An introduction to the PedView system, detailing the integrated technology stack and how the system components interact to provide real-time pedestrian detection and collision prediction.</p>
             </div>
         </section>
 
-        <section id="monocular-detection">
+        <section id="feature-evolution">
             <div class="container">
-                <h2>Monocular 3D Pedestrian Detection</h2>
-                <p>PedView's pedestrian detection is powered by a monocular 3D object detection system. Unlike conventional 2D detection methods, PedView locates pedestrians in 3D space, providing more accurate information about their distance, size, and movement.</p>
+                <h2>Evolution of Detection Features</h2>
+                <p>The transition from handcrafted to deep learning features marks a significant evolution in pedestrian detection. While handcrafted features were engineered based on specific domain knowledge, deep learning models learn to identify useful features autonomously from large amounts of data, providing enhanced detection capabilities [3].</p>
+                <p>In the context of PedView, leveraging deep learning models facilitates more robust detection across various scenarios, ensuring higher accuracy and reliability of the system in urban settings [3].</p>
+            </div>
+        </section>
+        
 
-                <h3>Key Components:</h3>
-                <ul>
-                    <li><strong>Backbone Network (Swin-small):</strong> Extracts features from images to improve pedestrian detection accuracy.</li>
-                    <li><strong>FPN Neck:</strong> Adapts to different pedestrian sizes and viewing angles, improving robustness in various scenarios.</li>
-                    <li><strong>3D Bounding Box Regression:</strong> Provides precise location and movement data of pedestrians in the scene.</li>
-                </ul>
-
-                <p>This system generates a 7-DoF (degrees of freedom) 3D bounding box for each pedestrian, allowing PedView to track their motion and distance from the vehicle. By utilizing the pinhole camera model, it converts 2D image data into accurate 3D coordinates, providing crucial information for the collision prediction algorithm.</p>
-
-                <!-- Placeholder for diagram -->
-                <img src="monocular-camera-setup.png" alt="Monocular Camera Setup for Pedestrian Detection">
-                <p><em>Figure 1: Monocular camera setup for pedestrian detection in ADAS.</em></p>
+        <section id="system-architecture">
+            <div class="container">
+                <h2>System Architecture</h2>
+                <p>Overview of the PedView system’s architecture, including how the monocular camera interfaces with onboard computing resources to process detection data.</p>
+                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/Screenshot 2024-09-26 at 7.05.10 PM.png" alt="PedView System Architecture" style="width:100%;">
             </div>
         </section>
 
-        <section id="fuzzy-control">
+        <section id="camera-coordinates">
             <div class="container">
-                <h2>Fuzzy Control System for Collision Prediction</h2>
-                <p>The fuzzy control system is central to PedView’s collision prediction capabilities. Fuzzy logic allows the system to assess collision risk based on the pedestrian’s position, distance, and movement. It categorizes the risk level into three categories: low, medium, and high.</p>
+                <h2>3D Localization from Monocular Camera</h2>
+                <p>The PedView system uses a monocular camera to detect pedestrians. This diagram illustrates how the camera's retinal coordinate system is converted into a 3D camera coordinate system, crucial for accurate pedestrian localization.</p>
+                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/3dspaceprojection.png" alt="Camera Coordinate System" style="width:100%;">
+                <p>This transformation is fundamental in determining the exact position of pedestrians in the real world, providing critical data for collision prediction algorithms.</p>
+            </div>
+        </section>
 
-                <h3>Fuzzy Inputs:</h3>
-                <ul>
-                    <li><strong>Lateral Distance:</strong> The distance of the pedestrian from the side of the vehicle.</li>
-                    <li><strong>Longitudinal Distance:</strong> The distance of the pedestrian in front or behind the vehicle.</li>
-                    <li><strong>Movement Status:</strong> Whether the pedestrian is stationary or moving.</li>
-                </ul>
+        <section id="depth-aware-convolution">
+            <div class="container">
+                <h2>Advanced Detection Techniques</h2>
+                <p>Integrating depth-aware convolution layers, as discussed in [2], could significantly enhance PedView’s ability to perceive spatial depths more accurately. This adaptation from the M3D-RPN approach allows for spatially-aware feature learning which is crucial for complex urban environments [2].</p>
+                <p>The innovative 3D anchor design utilized by M3D-RPN enables more precise initialization of 3D parameters directly from 2D images, suggesting a pathway for PedView to refine its pedestrian detection accuracy [2].</p>
+                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/Screenshot 2024-09-26 at 8.29.05 PM.png" alt="M3D-RPN uses a single monocular 3D region" style="width:100%;">
+            </div>
+        </section>
+        
+        
 
-           
+        <section id="real-world-application">
+            <div class="container">
+                <h2>Real-World Application</h2>
+                <p>Discussion on the deployment of the PedView system in urban settings, the challenges faced, and the impact on pedestrian safety.</p>
+            </div>
+        </section>
+
+        <section id="conclusion">
+            <div class="container">
+                <h2>Conclusion</h2>
+                <p>A summary of the system’s capabilities and the benefits it brings to urban traffic management and pedestrian safety.</p>
+            </div>
+        </section>
+    </main>
+
+        <section id="interactive-fuzzy">
+            <div class="container">
+                <h2>Interactive Fuzzy Logic Risk Prediction</h2>
+                <p>Test the fuzzy logic system by selecting values below:</p>
+        
+                <label for="lateralDistance">Lateral Distance: </label>
+                <select id="lateralDistance" name="lateralDistance">
+                    <option value="near">Near</option>
+                    <option value="medium">Medium</option>
+                    <option value="far">Far</option>
+                </select><br><br>
+        
+                <label for="longitudinalDistance">Longitudinal Distance: </label>
+                <select id="longitudinalDistance" name="longitudinalDistance">
+                    <option value="near">Near</option>
+                    <option value="medium">Medium</option>
+                    <option value="far">Far</option>
+                </select><br><br>
+        
+                <label for="movementStatus">Movement Status: </label>
+                <select id="movementStatus" name="movementStatus">
+                    <option value="stationary">Stationary</option>
+                    <option value="moving">Moving</option>
+                </select><br><br>
+        
+                <button onclick="predictRisk()">Predict Risk</button>
+        
+                <p id="riskOutput"></p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- <footer>
+        <div class="container">
+            <p>© 2024 Pedestrian Collision Prediction Tutorial</p>
+        </div>
+    </footer> -->
+
+    <script>
+        function predictRisk() {
+            const lateralDistance = document.getElementById('lateralDistance').value;
+            const longitudinalDistance = document.getElementById('longitudinalDistance').value;
+            const movementStatus = document.getElementById('movementStatus').value;
+    
+            let riskLevel = '';
+    
+            // Apply rules from the table
+            if (lateralDistance === 'near' && longitudinalDistance === 'near' && movementStatus === 'stationary') {
+                riskLevel = 'High';
+            } else if (lateralDistance === 'near' && longitudinalDistance === 'near' && movementStatus === 'moving') {
+                riskLevel = 'High';
+            } else if (lateralDistance === 'near' && longitudinalDistance === 'medium' && movementStatus === 'stationary') {
+                riskLevel = 'Medium';
+            } else if (lateralDistance === 'near' && longitudinalDistance === 'medium' && movementStatus === 'moving') {
+                riskLevel = 'High';
+            } else if (lateralDistance === 'near' && longitudinalDistance === 'far' && movementStatus === 'stationary') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'near' && longitudinalDistance === 'far' && movementStatus === 'moving') {
+                riskLevel = 'Medium';
+            } else if (lateralDistance === 'medium' && longitudinalDistance === 'near' && movementStatus === 'stationary') {
+                riskLevel = 'Medium';
+            } else if (lateralDistance === 'medium' && longitudinalDistance === 'near' && movementStatus === 'moving') {
+                riskLevel = 'Medium';
+            } else if (lateralDistance === 'medium' && longitudinalDistance === 'medium' && movementStatus === 'stationary') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'medium' && longitudinalDistance === 'medium' && movementStatus === 'moving') {
+                riskLevel = 'Medium';
+            } else if (lateralDistance === 'medium' && longitudinalDistance === 'far' && movementStatus === 'stationary') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'medium' && longitudinalDistance === 'far' && movementStatus === 'moving') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'far' && longitudinalDistance === 'near' && movementStatus === 'stationary') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'far' && longitudinalDistance === 'near' && movementStatus === 'moving') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'far' && longitudinalDistance === 'medium' && movementStatus === 'stationary') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'far' && longitudinalDistance === 'medium' && movementStatus === 'moving') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'far' && longitudinalDistance === 'far' && movementStatus === 'stationary') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'far' && longitudinalDistance === 'far' && movementStatus === 'moving') {
+                riskLevel = 'Low';
+            }
+    
+            document.getElementById('riskOutput').innerHTML = "Predicted Risk Level: " + riskLevel;
+        }
+    </script>
+    
+</body>
+</html>
