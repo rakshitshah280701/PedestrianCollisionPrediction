@@ -45,7 +45,7 @@
                 <p>In the discussed study [4], the monocular camera employs advanced computer vision algorithms to detect pedestrians accurately. One key technique involves the use of CENTRIST (CENsus TRansform hISTogram) descriptors, which are effective in capturing structural and textural information from the visual data captured by the camera. This method is particularly robust in varying lighting conditions and provides reliable data that is crucial for the detection process.</p>
                 <p>Additionally, the use of Sobel image processing techniques enhances edge detection, a critical factor in delineating pedestrian figures from complex urban backgrounds. By applying the Sobel filter, the system can highlight vertical edges—typical in human silhouettes—thus improving the accuracy of pedestrian detection.</p>
                 <p>Together, these techniques enable the PedView system to efficiently and accurately detect pedestrians using just a single camera lens, which simplifies the system architecture while maintaining high performance standards. This approach not only optimizes the cost and complexity but also enhances the adaptability of the system to different vehicles and urban settings [4].</p>
-                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/1-s2.0-S1047320314000145-gr5.jpg" alt="" style="width:100%;">
+                <img src="1-s2.0-S1047320314000145-gr5.jpg" alt="" style="width:100%;">
                 <p>Example of Centrist. <a href="https://www.sciencedirect.com/science/article/abs/pii/S1047320314000145">[https://www.sciencedirect.com/science/article/abs/pii/S1047320314000145]</a></p>
 
             </div>
@@ -57,7 +57,7 @@
             <div class="container">
                 <h2>System Architecture</h2>
                 <p>Overview of the PedView system’s architecture[1], including how the monocular camera interfaces with onboard computing resources to process detection data.</p>
-                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/Screenshot 2024-09-26 at 7.05.10 PM.png" alt="PedView System Architecture" style="width:100%;">
+                <img src="Screenshot 2024-09-26 at 7.05.10 PM.png" alt="PedView System Architecture" style="width:100%;">
             </div>
         </section>
 
@@ -65,7 +65,7 @@
             <div class="container">
                 <h2>3D Localization from Monocular Camera</h2>
                 <p>The PedView system uses a monocular camera to detect pedestrians. This diagram illustrates how the camera's retinal coordinate system is converted into a 3D camera coordinate system, crucial for accurate pedestrian localization.</p>
-                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/3dspaceprojection.png" alt="Camera Coordinate System" style="width:100%;">
+                <img src="3dspaceprojection.png" alt="Camera Coordinate System" style="width:100%;">
                 <p>This transformation is fundamental in determining the exact position of pedestrians in the real world, providing critical data for collision prediction algorithms.</p>
             </div>
         </section>
@@ -75,7 +75,7 @@
                 <h2>Advanced Detection Techniques</h2>
                 <p>Integrating depth-aware convolution layers, as discussed in [2], could significantly enhance PedView’s ability to perceive spatial depths more accurately. This adaptation from the M3D-RPN approach allows for spatially-aware feature learning which is crucial for complex urban environments [2].</p>
                 <p>The innovative 3D anchor design utilized by M3D-RPN enables more precise initialization of 3D parameters directly from 2D images, suggesting a pathway for PedView to refine its pedestrian detection accuracy [2].</p>
-                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/Screenshot 2024-09-26 at 8.29.05 PM.png" alt="M3D-RPN uses a single monocular 3D region" style="width:100%;">
+                <img src="Screenshot 2024-09-26 at 8.29.05 PM.png" alt="M3D-RPN uses a single monocular 3D region" style="width:100%;">
             </div>
         </section>
 
@@ -83,7 +83,7 @@
             <div class="container">
                 <h2>Advanced Feature Extraction for Pedestrian Detection</h2>
                 <p>To enhance the PedView system’s detection capabilities, integrating the [5] Harris corner detection algorithm offers a robust method for extracting pedestrian features from monocular camera images. This technique focuses on identifying critical points in pedestrian contours, facilitating more accurate detection and tracking in complex urban environments.</p>
-                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/harris-corner.png" alt="Harris-corner" style="width:100%;">
+                <img src="harris-corner.png" alt="Harris-corner" style="width:100%;">
 
             </div>
         </section>

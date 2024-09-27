@@ -43,7 +43,7 @@
             <div class="container">
                 <h2>Monocular 3D Pedestrian Detection</h2>
                 <p>The PedView system employs a sophisticated monocular [1] 3D detection method to accurately identify and localize pedestrians. This technique leverages advanced computer vision and deep learning to process images captured by a single forward-facing camera.</p>
-                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/Screenshot 2024-09-26 at 6.47.36 PM.png" alt="Monocular 3D Detection Process Diagram" style="width:100%;">
+                <img src="Screenshot 2024-09-26 at 6.47.36 PM.png" alt="Monocular 3D Detection Process Diagram" style="width:100%;">
                 
                 <h3>Detailed Component Breakdown</h3>
                 <p><strong>Backbone Network:</strong> Utilizes the Swin-small model to extract features from the input image, forming the basis for detection.</p>
@@ -57,7 +57,7 @@
             <div class="container">
                 <h2>Single-Shot 3D Detection Framework</h2>
                 <p>Adopting a single-shot, end-to-end trained network similar to the M3D-RPN [2] could streamline PedView's detection processes, allowing simultaneous 2D and 3D object detection. This method reduces computational overhead and enhances real-time processing capabilities [2].</p>
-                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/single-shot.png" alt="Single_shot" style="width:100%;">
+                <img src="single-shot.png" alt="Single_shot" style="width:100%;">
 
             </div>
         </section>
@@ -68,7 +68,7 @@
                 <p>This section details the fuzzy logic algorithms that evaluate the collision risk based on the data provided by the pedestrian detection system.</p>
                 <p>Fuzzy logic [1] is used to interpret the uncertain and imprecise data, turning it into meaningful risk assessments. This system's logic involves stages of fuzzification, rule-based inference, and defuzzification to classify risk levels effectively.</p>
                 <p>Fuzzy logic plays a pivotal role in assessing the collision risk by interpreting various inputs through fuzzy sets. Below are the membership functions used for lateral distance, longitudinal distance, movement status, and the output hazard levels.</p>
-                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/graph.png" alt="Fuzzy Logic Membership Functions" style="width:100%;">
+                <img src="graph.png" alt="Fuzzy Logic Membership Functions" style="width:100%;">
                 <h3>Detailed Explanation of Membership Functions</h3>
         <p>The graphs illustrate how input variables like lateral and longitudinal distances, along with pedestrian movement status, are converted into fuzzy values which are then used to determine collision risk levels.</p>
         
