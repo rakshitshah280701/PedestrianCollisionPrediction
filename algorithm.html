@@ -14,7 +14,7 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="technical.html">PedView System</a></li>
-                    <li><a href="algorithm.html">Algorithms</a></li>
+                    <!-- <li><a href="algorithm.html">Algorithms</a></li> -->
                     <li><a href="experiment.html">Experiments</a></li>
                     <li><a href="bibliography.html">Bibliography</a></li>
                 </ul>
@@ -93,6 +93,92 @@
             </div>
         </section>
     </main>
+
+</main>
+
+<section id="interactive-fuzzy">
+    <div class="container">
+        <h2>Interactive Fuzzy Logic Risk Prediction</h2>
+        <p>Test the fuzzy logic system by selecting values below:</p>
+
+        <label for="lateralDistance">Lateral Distance: </label>
+        <select id="lateralDistance" name="lateralDistance">
+            <option value="near">Near</option>
+            <option value="medium">Medium</option>
+            <option value="far">Far</option>
+        </select><br><br>
+
+        <label for="longitudinalDistance">Longitudinal Distance: </label>
+        <select id="longitudinalDistance" name="longitudinalDistance">
+            <option value="near">Near</option>
+            <option value="medium">Medium</option>
+            <option value="far">Far</option>
+        </select><br><br>
+
+        <label for="movementStatus">Movement Status: </label>
+        <select id="movementStatus" name="movementStatus">
+            <option value="stationary">Stationary</option>
+            <option value="moving">Moving</option>
+        </select><br><br>
+
+        <button onclick="predictRisk()">Predict Risk</button>
+
+        <p id="riskOutput"></p>
+    </div>
+</section>
+
+</main>
+
+    <script>
+        function predictRisk() {
+            const lateralDistance = document.getElementById('lateralDistance').value;
+            const longitudinalDistance = document.getElementById('longitudinalDistance').value;
+            const movementStatus = document.getElementById('movementStatus').value;
+    
+            let riskLevel = '';
+    
+            // Apply rules from the table
+            if (lateralDistance === 'near' && longitudinalDistance === 'near' && movementStatus === 'stationary') {
+                riskLevel = 'High';
+            } else if (lateralDistance === 'near' && longitudinalDistance === 'near' && movementStatus === 'moving') {
+                riskLevel = 'High';
+            } else if (lateralDistance === 'near' && longitudinalDistance === 'medium' && movementStatus === 'stationary') {
+                riskLevel = 'Medium';
+            } else if (lateralDistance === 'near' && longitudinalDistance === 'medium' && movementStatus === 'moving') {
+                riskLevel = 'High';
+            } else if (lateralDistance === 'near' && longitudinalDistance === 'far' && movementStatus === 'stationary') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'near' && longitudinalDistance === 'far' && movementStatus === 'moving') {
+                riskLevel = 'Medium';
+            } else if (lateralDistance === 'medium' && longitudinalDistance === 'near' && movementStatus === 'stationary') {
+                riskLevel = 'Medium';
+            } else if (lateralDistance === 'medium' && longitudinalDistance === 'near' && movementStatus === 'moving') {
+                riskLevel = 'Medium';
+            } else if (lateralDistance === 'medium' && longitudinalDistance === 'medium' && movementStatus === 'stationary') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'medium' && longitudinalDistance === 'medium' && movementStatus === 'moving') {
+                riskLevel = 'Medium';
+            } else if (lateralDistance === 'medium' && longitudinalDistance === 'far' && movementStatus === 'stationary') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'medium' && longitudinalDistance === 'far' && movementStatus === 'moving') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'far' && longitudinalDistance === 'near' && movementStatus === 'stationary') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'far' && longitudinalDistance === 'near' && movementStatus === 'moving') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'far' && longitudinalDistance === 'medium' && movementStatus === 'stationary') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'far' && longitudinalDistance === 'medium' && movementStatus === 'moving') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'far' && longitudinalDistance === 'far' && movementStatus === 'stationary') {
+                riskLevel = 'Low';
+            } else if (lateralDistance === 'far' && longitudinalDistance === 'far' && movementStatus === 'moving') {
+                riskLevel = 'Low';
+            }
+    
+            document.getElementById('riskOutput').innerHTML = "Predicted Risk Level: " + riskLevel;
+        }
+    </script>
 
     
 </body>

@@ -15,7 +15,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="technical.html">Technical Details</a></li>
                     <li><a href="algorithm.html">Algorithms</a></li>
-                    <li><a href="experiments.html">Experiments</a></li>
+                    <!-- <li><a href="experiments.html">Experiments</a></li> -->
                     <li><a href="bibliography.html">Bibliography</a></li>
                 </ul>
             </nav>
@@ -35,14 +35,14 @@
                 <h2>Datasets Used</h2>
                 <p>Key datasets included the nuScenes Dataset for 3D pedestrian detection and the specialized nuScenes-collision Dataset for collision prediction. These datasets provide diverse scenarios critical for testing the system’s robustness.</p>
                 <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/nuscence.png" alt="nuScenes Dataset Samples" style="width:100%;">
-                <p> source : https://www.nuscenes.org/ </p>
+                <p> source : <a href="https://www.nuscenes.org/">[https://www.nuscenes.org/]</a> </p>
             </div>
         </section>
 
         <section id="methodology">
             <div class="container">
                 <h2>Methodology</h2>
-                <p>Our experimental methodology was designed to rigorously test the PedView system’s pedestrian detection and collision prediction capabilities under various conditions. This section details the setup, execution, and evaluation criteria of the experiments conducted.</p>
+                <p>The experimental methodology was designed to rigorously test the PedView system’s pedestrian detection and collision prediction capabilities under various conditions. This section details the setup, execution, and evaluation criteria of the experiments conducted.</p>
         
                 <h3>Experimental Setup</h3>
                 <p>The experiments were conducted using a forward-facing monocular camera mounted on a test vehicle. The camera was calibrated to ensure accurate depth perception and field of view alignment. Data collection took place in both controlled environments and in real-world urban settings to capture a wide range of pedestrian behaviors and scenarios.</p>
@@ -76,7 +76,7 @@
                 <h2>Experimental Results</h2>
                 <p>PedView demonstrated superior performance in both pedestrian detection and collision prediction, outperforming traditional systems in precision and recall across various testing scenarios.</p>
                 <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/result.png" alt="Results Graph" style="width:100%;">
-                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/result_table.png" alt="Results Graph" style="width:100%;">
+                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/Result_dcr_pedview.png" alt="Results Graph" style="width:100%;">
             </div>
         </section>
 
@@ -84,15 +84,18 @@
             <div class="container">
                 <h2>Benchmarking Against M3D-RPN</h2>
                 <p>Performance metrics from the M3D-RPN study, particularly in Bird’s Eye View (BEV) and 3D object detection tasks [2], provide a benchmark for evaluating PedView’s capabilities. Future experiments could incorporate similar metrics to rigorously assess enhancements derived from integrating M3D-RPN's methodologies [2].</p>
+                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/BEV_3dDetection.png" alt="Results Graph" style="width:100%;">
+
             </div>
         </section>
         
-        <section id="methodological-comparisons">
+        <!-- <section id="methodological-comparisons">
             <div class="container">
                 <h2>Methodological Insights</h2>
                 <p>Exploring the detailed methodologies from the M3D-RPN paper [2] offers valuable insights into experimental designs that could further validate the enhancements in PedView’s detection accuracy and reliability [2].</p>
             </div>
         </section>
+         -->
         
 
         <section id="discussion">
@@ -110,10 +113,10 @@
         </section>
     </main>
 
-    <footer>
+    <!-- <footer>
         <div class="container">
             <p>© 2024 Pedestrian Collision Prediction Tutorial</p>
         </div>
-    </footer>
+    </footer> -->
 </body>
 </html>

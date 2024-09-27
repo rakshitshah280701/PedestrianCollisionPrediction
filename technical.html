@@ -13,7 +13,7 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="technical.html">Technical Details</a></li>
+                    <!-- <li><a href="technical.html">Technical Details</a></li> -->
                     <li><a href="algorithm.html">Algorithms</a></li>
                     <li><a href="experiment.html">Experiments</a></li>
                     <li><a href="bibliography.html">Bibliography</a></li>
@@ -37,6 +37,20 @@
                 <p>In the context of PedView, leveraging deep learning models facilitates more robust detection across various scenarios, ensuring higher accuracy and reliability of the system in urban settings [3].</p>
             </div>
         </section>
+
+        <section id="monocular-detection">
+            <div class="container">
+                <h2>Monocular Camera for Pedestrian Detection</h2>
+                <p>The PedView system's capabilities can be significantly augmented by adopting monocular camera-based pedestrian detection techniques, as elucidated in recent research [3]. Unlike systems that rely on complex and costly multi-sensor setups, monocular cameras offer a cost-effective yet powerful solution for pedestrian detection in diverse environments.</p>
+                <p>In the discussed study [4], the monocular camera employs advanced computer vision algorithms to detect pedestrians accurately. One key technique involves the use of CENTRIST (CENsus TRansform hISTogram) descriptors, which are effective in capturing structural and textural information from the visual data captured by the camera. This method is particularly robust in varying lighting conditions and provides reliable data that is crucial for the detection process.</p>
+                <p>Additionally, the use of Sobel image processing techniques enhances edge detection, a critical factor in delineating pedestrian figures from complex urban backgrounds. By applying the Sobel filter, the system can highlight vertical edges—typical in human silhouettes—thus improving the accuracy of pedestrian detection.</p>
+                <p>Together, these techniques enable the PedView system to efficiently and accurately detect pedestrians using just a single camera lens, which simplifies the system architecture while maintaining high performance standards. This approach not only optimizes the cost and complexity but also enhances the adaptability of the system to different vehicles and urban settings [4].</p>
+                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/1-s2.0-S1047320314000145-gr5.jpg" alt="" style="width:100%;">
+                <p>Example of Centrist. <a href="https://www.sciencedirect.com/science/article/abs/pii/S1047320314000145">[https://www.sciencedirect.com/science/article/abs/pii/S1047320314000145]</a></p>
+
+            </div>
+        </section>
+        
         
 
         <section id="system-architecture">
@@ -64,56 +78,35 @@
                 <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/Screenshot 2024-09-26 at 8.29.05 PM.png" alt="M3D-RPN uses a single monocular 3D region" style="width:100%;">
             </div>
         </section>
-        
+
+        <section id="feature-extraction">
+            <div class="container">
+                <h2>Advanced Feature Extraction for Pedestrian Detection</h2>
+                <p>To enhance the PedView system’s detection capabilities, integrating the Harris corner detection algorithm offers a robust method for extracting pedestrian features from monocular camera images. This technique focuses on identifying critical points in pedestrian contours, facilitating more accurate detection and tracking in complex urban environments.</p>
+                <img src="/Users/rakshitshah/Desktop/Fall24/CV/PedestrianCollisionPrediction/harris-corner.png" alt="Harris-corner" style="width:100%;">
+
+            </div>
+        </section>
+                
         
 
-        <section id="real-world-application">
+        <!-- <section id="real-world-application">
             <div class="container">
                 <h2>Real-World Application</h2>
                 <p>Discussion on the deployment of the PedView system in urban settings, the challenges faced, and the impact on pedestrian safety.</p>
             </div>
-        </section>
+        </section> -->
 
         <section id="conclusion">
             <div class="container">
                 <h2>Conclusion</h2>
-                <p>A summary of the system’s capabilities and the benefits it brings to urban traffic management and pedestrian safety.</p>
+                <p>The PedView system represents a significant advancement in pedestrian collision prediction technology. By harnessing the power of monocular cameras combined with cutting-edge computer vision algorithms such as CENTRIST descriptors and Sobel image processing, PedView provides a cost-effective solution that does not compromise on accuracy or reliability.</p>
+                <p>Our in-depth exploration of various detection features, from handcrafted to deep learning models, showcases the system's ability to adapt to diverse urban environments while maintaining high detection standards. The integration of sophisticated motion vector estimation techniques and depth-aware convolution layers further enhances the system’s ability to accurately predict and prevent potential pedestrian collisions.</p>
+                <p>Through continuous innovation and rigorous testing, PedView is poised to set new standards in ADAS technology, making urban areas safer for pedestrians. As we move forward, the ongoing enhancements and expansions of our detection capabilities and predictive algorithms are expected to bring about even more robust and adaptable solutions to meet the challenges of modern urban transportation.</p>
             </div>
         </section>
-    </main>
-
-        <section id="interactive-fuzzy">
-            <div class="container">
-                <h2>Interactive Fuzzy Logic Risk Prediction</h2>
-                <p>Test the fuzzy logic system by selecting values below:</p>
         
-                <label for="lateralDistance">Lateral Distance: </label>
-                <select id="lateralDistance" name="lateralDistance">
-                    <option value="near">Near</option>
-                    <option value="medium">Medium</option>
-                    <option value="far">Far</option>
-                </select><br><br>
-        
-                <label for="longitudinalDistance">Longitudinal Distance: </label>
-                <select id="longitudinalDistance" name="longitudinalDistance">
-                    <option value="near">Near</option>
-                    <option value="medium">Medium</option>
-                    <option value="far">Far</option>
-                </select><br><br>
-        
-                <label for="movementStatus">Movement Status: </label>
-                <select id="movementStatus" name="movementStatus">
-                    <option value="stationary">Stationary</option>
-                    <option value="moving">Moving</option>
-                </select><br><br>
-        
-                <button onclick="predictRisk()">Predict Risk</button>
-        
-                <p id="riskOutput"></p>
-            </div>
-        </section>
-
-    </main>
+    
 
     <!-- <footer>
         <div class="container">
@@ -121,56 +114,6 @@
         </div>
     </footer> -->
 
-    <script>
-        function predictRisk() {
-            const lateralDistance = document.getElementById('lateralDistance').value;
-            const longitudinalDistance = document.getElementById('longitudinalDistance').value;
-            const movementStatus = document.getElementById('movementStatus').value;
-    
-            let riskLevel = '';
-    
-            // Apply rules from the table
-            if (lateralDistance === 'near' && longitudinalDistance === 'near' && movementStatus === 'stationary') {
-                riskLevel = 'High';
-            } else if (lateralDistance === 'near' && longitudinalDistance === 'near' && movementStatus === 'moving') {
-                riskLevel = 'High';
-            } else if (lateralDistance === 'near' && longitudinalDistance === 'medium' && movementStatus === 'stationary') {
-                riskLevel = 'Medium';
-            } else if (lateralDistance === 'near' && longitudinalDistance === 'medium' && movementStatus === 'moving') {
-                riskLevel = 'High';
-            } else if (lateralDistance === 'near' && longitudinalDistance === 'far' && movementStatus === 'stationary') {
-                riskLevel = 'Low';
-            } else if (lateralDistance === 'near' && longitudinalDistance === 'far' && movementStatus === 'moving') {
-                riskLevel = 'Medium';
-            } else if (lateralDistance === 'medium' && longitudinalDistance === 'near' && movementStatus === 'stationary') {
-                riskLevel = 'Medium';
-            } else if (lateralDistance === 'medium' && longitudinalDistance === 'near' && movementStatus === 'moving') {
-                riskLevel = 'Medium';
-            } else if (lateralDistance === 'medium' && longitudinalDistance === 'medium' && movementStatus === 'stationary') {
-                riskLevel = 'Low';
-            } else if (lateralDistance === 'medium' && longitudinalDistance === 'medium' && movementStatus === 'moving') {
-                riskLevel = 'Medium';
-            } else if (lateralDistance === 'medium' && longitudinalDistance === 'far' && movementStatus === 'stationary') {
-                riskLevel = 'Low';
-            } else if (lateralDistance === 'medium' && longitudinalDistance === 'far' && movementStatus === 'moving') {
-                riskLevel = 'Low';
-            } else if (lateralDistance === 'far' && longitudinalDistance === 'near' && movementStatus === 'stationary') {
-                riskLevel = 'Low';
-            } else if (lateralDistance === 'far' && longitudinalDistance === 'near' && movementStatus === 'moving') {
-                riskLevel = 'Low';
-            } else if (lateralDistance === 'far' && longitudinalDistance === 'medium' && movementStatus === 'stationary') {
-                riskLevel = 'Low';
-            } else if (lateralDistance === 'far' && longitudinalDistance === 'medium' && movementStatus === 'moving') {
-                riskLevel = 'Low';
-            } else if (lateralDistance === 'far' && longitudinalDistance === 'far' && movementStatus === 'stationary') {
-                riskLevel = 'Low';
-            } else if (lateralDistance === 'far' && longitudinalDistance === 'far' && movementStatus === 'moving') {
-                riskLevel = 'Low';
-            }
-    
-            document.getElementById('riskOutput').innerHTML = "Predicted Risk Level: " + riskLevel;
-        }
-    </script>
     
 </body>
 </html>
